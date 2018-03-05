@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Admin Panel</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 bg-dark">
+                <ul class="nav flex-column menu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Новости</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Мероприятия</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Галерея</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Члены клуба</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="div main col-md-10">
+                <h1>Добавить новость:</h1>
+                <form action="" enctype="multipart/form-data" method="post">
+                    <div class="form-group">
+                        <label for="title">Заголовок:</label>
+                        <input type="text" class="form-control" id="title">
+                    </div>
+                    <div class="form-group">
+                        <label for="body">Содержание:</label>
+                        <textarea class="form-control" id="body" rows="10"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="file">Главное фото:</label>
+                        <input type="file" class="form-control-file" id="file">
+                    </div>
+                    <div class="form-group">
+                        <label for="file">Дополнительные фото(гелерея):</label>
+                        <input type="file" class="form-control-file" id="file" multiple>
+                    </div>
+                    <div class="form-group">
+                        <label for="file">Видео:</label>
+                        <input type="file" class="form-control-file" id="file" multiple>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

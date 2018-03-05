@@ -1,0 +1,52 @@
+body, html {
+    height: 100%;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+}
+a:hover{
+    text-decoration: none;
+}
+.sidebar{
+    position: fixed;
+    height: 100%;
+    width: 180px;
+    background-color: rgb(26, 29, 34);
+    /* overflow-y: scroll; */
+}
+.sidebar a{
+    display: block;
+    padding: 20px;
+    color: rgb(193, 200, 214);
+    border-bottom: 2px solid rgb(0, 0, 0);
+}
+.tv_menu>li>a{
+    text-transform: uppercase;
+}
+.sidebar a:hover{
+    color: white;
+}
+.tv_menu>li {
+    position: relative;
+}
+.tv_submenu{
+    position: absolute;
+    top:0;
+    left: 100%;
+    display: none;
+    z-index: 999;
+    background-color: rgb(28, 33, 43);
+    width: 150px;
+}
+.sidebar li:hover .tv_submenu{
+    display: block;
+}
+.main{
+    margin-left: 180px;
+    padding: 15px 30px;
+}
+.ck-reset{
+    z-index: 0;
+}
