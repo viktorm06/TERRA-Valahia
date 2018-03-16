@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function news_add()
+    // NEWS
+    public function new_add()
     {
         return view('admin.add-new');
     }
@@ -21,16 +22,31 @@ class DashboardController extends Controller
         $mini_post = \App\Mini_post::find($id);
         return view('admin.edit-new', compact('post', 'mini_post'));
     }
-    public function events_add()
+    public function categories()
+    {
+        $categories = \App\Category::latest()->get();
+        return view('admin.categories', compact('categories'));
+    }
+    // EVENTS
+    public function event_add()
     {
         return view('admin.add-event');
     }
-    public function categories()
+    public function events_panel()
     {
-        return view('admin.categories');
+        $events = \App\Event::latest()->get();
+        return view('admin.events-panel', compact('events'));
     }
-    public function parteners_add()
+    // PARTNERS
+    public function partener_add()
     {
-        return view('admin.partners');
+        $partners = \App\Partner::latest()->get();
+        return view('admin.partners', compact('partners'));
+    }
+    // MEMBERS
+    public function member_add()
+    {
+        $members = \App\Member::all();
+        return view('admin.members', compact('members'));
     }
 }

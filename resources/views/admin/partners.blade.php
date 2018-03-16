@@ -15,4 +15,24 @@
             <button class="btn btn-lg btn-primary " type="submit">Добавить</button>
         </div>
     </form>
+
+    <br> <hr>
+    <h2>Изменить уже существующих:</h2>
+    <br>
+    <table cellpadding="20" border="1">
+        @foreach ($partners as $partner)
+            <tr>
+                <td style="padding: 0;"><img src="{{ '../../img/parteneri/' . $partner->id . '.png' }}" alt=""></td>
+                <td>{{ $partner->name }}</td>
+                <td><a href="/admin/partners/edit/{{ $partner->id }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                <td><a href="#" onclick="ask_delete({{ $partner->id }})"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+            </tr>
+        @endforeach
+    </table>
+    <script>
+        function ask_delete(id){
+            confirm("Вы действительно хотите удалить данную категорию?") ? location.href="/admin/partners/delete/" + id : false;
+        }
+    </script>
+    <script src="https://use.fontawesome.com/9d56cf9b09.js"></script>
 @endsection

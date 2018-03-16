@@ -135,6 +135,12 @@ header .logo {
   border: 1px solid #3c3636;
   border-radius: 3%;
   padding: 30px; }
+  .main_article .hidder1, .main_article .hidder2, .main_article .hidder3 {
+    text-transform: uppercase;
+    color: #50ed0c;
+    text-shadow: 1px 1px 5px black, -1px 1px 5px black, 1px -1px 5px black, -1px -1px 5px black;
+    text-align: center;
+    margin-bottom: 20px; }
 
 .footer {
   padding: 20px;
@@ -158,28 +164,24 @@ header .logo {
       .footer .socials a i {
         font-size: 35px; }
 
-.index_main_article h1, .index_main_article h2, .index_main_article h3 {
-  text-transform: uppercase;
-  color: #50ed0c;
-  text-shadow: 1px 1px 5px black, -1px 1px 5px black, 1px -1px 5px black, -1px -1px 5px black;
-  text-align: center;
-  margin-bottom: 20px; }
-
 .index_main_article ul {
   list-style-type: square;
   padding: 20px; }
   .index_main_article ul li {
     font-size: 20px;
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    text-align: justify; }
 
 .news_main_article .item {
-  min-height: 200px;
+  overflow: auto;
   margin-bottom: 30px;
-  position: relative; }
+  position: relative;
+  padding-bottom: 20px; }
   .news_main_article .item .item_more {
     position: absolute;
     right: 0;
-    bottom: 0; }
+    bottom: 0;
+    color: #45cb0a; }
   .news_main_article .item a:hover {
     text-decoration: underline; }
   .news_main_article .item .preview {
@@ -190,13 +192,22 @@ header .logo {
   .news_main_article .item .item_hidder {
     font-weight: 400;
     color: #060606;
-    margin-bottom: 10px;
     font-size: 25px; }
+  .news_main_article .item .time_and_date {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-style: italic;
+    font-weight: 600;
+    color: #8c7f7f; }
   .news_main_article .item .item_description,
   .news_main_article .item .item_more {
     font-size: 20px; }
-  .news_main_article .item .item_more {
-    color: #45cb0a; }
+
+.show_news_main_article .show_news_body {
+  font-size: 18px;
+  display: inline-block;
+  text-align: justify;
+  text-indent: 30px; }
 
 .events_main_article .event {
   width: 100%;
@@ -205,12 +216,19 @@ header .logo {
   margin-bottom: 30px; }
   .events_main_article .event td {
     padding: 10px; }
+  .events_main_article .event .description {
+    padding: 0; }
+    .events_main_article .event .description .description_name_wrapper {
+      padding: 20px; }
+    .events_main_article .event .description img {
+      width: 100%;
+      height: auto; }
   .events_main_article .event .time-and-date,
   .events_main_article .event .destination {
     background-color: #3c3636;
     color: #f0f6f2; }
   .events_main_article .event .time-and-date {
-    width: 25%; }
+    width: 20%; }
     .events_main_article .event .time-and-date .date {
       font-size: 20px; }
     .events_main_article .event .time-and-date .time {
@@ -218,3 +236,64 @@ header .logo {
   .events_main_article .event .description h3,
   .events_main_article .event .destination .place {
     text-transform: uppercase; }
+
+.members_main_article .members_grid {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  justify-content: space-between; }
+  .members_main_article .members_grid .member {
+    width: 170px;
+    border: 3px solid #3c3636;
+    border-radius: 20px;
+    margin-bottom: 45px; }
+    .members_main_article .members_grid .member .member_photo {
+      width: 100%; }
+    .members_main_article .members_grid .member .member_name_container {
+      padding: 5px;
+      background-color: #f9f8f8;
+      text-align: center; }
+      .members_main_article .members_grid .member .member_name_container .member_name {
+        font-size: 17px; }
+
+.pagination {
+  height: 35px;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 70px; }
+  .pagination .previous,
+  .pagination .next {
+    transition: all 0.1s;
+    height: 100%;
+    width: 170px;
+    background-color: white;
+    border: 2px solid #3c3636;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .pagination .previous .pagination_word,
+    .pagination .previous .fa,
+    .pagination .next .pagination_word,
+    .pagination .next .fa {
+      color: #3c3636;
+      font-size: 17px;
+      font-weight: 800; }
+    .pagination .previous .fa,
+    .pagination .next .fa {
+      font-size: 25px; }
+  .pagination .previous {
+    float: left; }
+    .pagination .previous:hover {
+      background: linear-gradient(to left, #50ed0c, white);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
+    .pagination .previous .pagination_word {
+      margin-left: 10px; }
+  .pagination .next {
+    float: right; }
+    .pagination .next:hover {
+      background: linear-gradient(to right, #50ed0c, white);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
+    .pagination .next .pagination_word {
+      margin-right: 10px; }
+  .pagination .clear {
+    clear: both; }

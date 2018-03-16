@@ -35,7 +35,7 @@
                 <ul class="tv_submenu">
                     <li><a href="/admin/events/add">Добавить мероприятие</a></li>
                     <li>
-                        <a href="">
+                        <a href="/admin/events/panel">
                             Изменить
                             <small>Редактировать/<br>Удалить</small>
                         </a>
@@ -55,16 +55,19 @@
                 </ul>
             </li>
             <li>
-                <a href="/admin/partners">Партнёы</a>
+                <a href="/admin/members/add">Члены клуба</a>
                 <ul class="tv_submenu">
-                    <li><a href="/admin/partners">Добавить партнёра</a></li>
+                    <li><a href="/admin/members/add">Добавить</a></li>
                     <li>
-                        <a href="">
+                        <a href="/admin/members/panel">
                             Изменить
                             <small>Редактировать/<br>Удалить</small>
                         </a>
                     </li>
                 </ul>
+            </li>
+            <li>
+                <a href="/admin/partners/add">Партнёы</a>
             </li>
             <li>
                 <a href="">Опции</a>
@@ -78,7 +81,6 @@
                 </ul>
             </li>
         </ul>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </div>
     <div class="main">
         @yield ('content')

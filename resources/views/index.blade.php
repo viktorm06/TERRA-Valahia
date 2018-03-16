@@ -2,8 +2,8 @@
 
 @section ('content')
     <div class="col-sm-9 main_article index_main_article">
-        <h1>cine suntem noi?</h1>
-        <h3>Scopurile Asociației constau în contribuirea la:</h3>
+        <h1 class="hidder1">cine suntem noi?</h1>
+        <h3 class="hidder3">Scopurile Asociației constau în contribuirea la:</h3>
         <ul>
             <li>Promovarea activităților de automobilism în următoarele ramuri de sport: Off Road (Jeep Cross), Autocross, Autoslalom, Drag racing, Karting, V1 Challenge, ș.a. atît pe plan național cît și internațional la nivel de amatori și profesioniști.</li>
             <li>Promovarea activităților de automobilism în următoarele ramuri de sport: Off Road (Jeep Cross), Autocross, Autoslalom, Drag racing, Karting, V1 Challenge, ș.a. atît pe plan național cît și internațional la nivel de amatori și profesioniști.</li>

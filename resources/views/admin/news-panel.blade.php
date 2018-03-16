@@ -8,7 +8,7 @@
             @foreach ($posts as $post)
                 <tr id="{{ $post->id }}">
                     <td align="center" valign="middle"><input type="checkbox"></td>
-                    <td><img src="{{ '../../img/post_main/small/' . $post->id . '.png' }}" style="width:80px; height:auto;"></td>
+                    <td cellpadding="0"><img src="{{ '../../img/post_main/small/' . $post->id . '.png' }}" style="width:80px; height:auto;"></td>
                     <td>{{$post->title}}</td>
                     <td width="400">{{$post->short_body}}</td>
                     <td>{{$post->category}}</td>
@@ -20,7 +20,7 @@
     </form>
     <script>
         function ask_delete(id){
-            confirm("Вы действительно хотите удалить данную новость?")?location.href="/admin/news/delete/"+id:false;
+            confirm("Вы действительно хотите удалить данную новость?") ? location.href="/admin/news/delete/" + id : false;
         }
     </script>
 @endsection

@@ -13,17 +13,21 @@ class EventsController extends Controller
         $events = Event::all();
         return view('events', compact('events'));
     }
-    public function create()
+    public function create($id = null)
     {
-        // dd(request()->all());
         $event = new Event;
-        $event->title = request('title');
-        $event->body = request('body');
-        $event->place = request('place');
-        $event->date = request('date');
-        $event->time = request('time');
-        $event->save();
-
+        $event -> create($id);
         return redirect()->back();
+    }
+    public function event_delete($id)
+    {
+        $event = new Event;
+        $event -> del($id);
+        return redirect()->back();
+    }
+    public function event_edit($id)
+    {
+        $event = Event::find($id);
+        return view('admin.edit-event', compact('event'));
     }
 }

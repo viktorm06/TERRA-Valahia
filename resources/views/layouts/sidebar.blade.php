@@ -12,7 +12,7 @@
 
     <div class="parteneri">
         @foreach (App\Partner::all() as $partner)
-            <img src="{{ asset('img/parteneri/' . $partner->id . '.png') }}" alt="{{ $partner->name }}">
+            <img src="{{ asset('img/parteneri/' . $partner->id . '.png') }}" alt="{{ $partner->name }}" title = "{{ $partner->name }}">
         @endforeach
     </div>
 </div>

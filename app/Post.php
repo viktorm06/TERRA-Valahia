@@ -10,4 +10,8 @@ class Post extends Model
     {
         return $this->hasMany('App\Gallery');
     }
+    public function videos()
+    {
+        return $this->hasMany('App\Video');
+    }
 }

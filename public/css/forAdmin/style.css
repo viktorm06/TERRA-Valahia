@@ -14,7 +14,7 @@ a:hover{
     height: 100%;
     width: 180px;
     background-color: rgb(26, 29, 34);
-    /* overflow-y: scroll; */
+    z-index: 1;
 }
 .sidebar a{
     display: block;
@@ -46,6 +46,10 @@ a:hover{
 .main{
     margin-left: 180px;
     padding: 15px 30px;
+}
+.short_desc{
+    width: 100%;
+    height: 150px;
 }
 .ck-reset{
     z-index: 0;

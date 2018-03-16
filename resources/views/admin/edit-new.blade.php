@@ -22,7 +22,7 @@
             <input name="title" type="text" class="form-control" id="title" value="{{ $mini_post->title }}">
         </div>
         <div class="form-group">
-            <textarea name="short_body">{{ $mini_post->short_body }}</textarea>
+            <textarea name="short_body" class=" form-group short_desc">{{ $mini_post->short_body }}</textarea>
         </div>
         <div class="form-group">
             <textarea name="body" id="editor">
@@ -39,8 +39,12 @@
             <input name="galery[]" type="file" class="form-control-file" id="file" multiple>
         </div>
         <div class="form-group">
-            <label for="file">Видео:</label>
-            <input type="file" class="form-control-file" id="file" multiple>
+            <label for="video">Код видео с youtube:</label>
+            <input name="video" type="text" class="form-control" id="video" value="
+            @if (!$post->videos->isEmpty())
+                {{$post->videos[0]->video_src}}
+            @endif
+            ">
         </div>
         <div class="form-group">
             <button class="btn btn-lg btn-primary " type="submit">Выложить</button>

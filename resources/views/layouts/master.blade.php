@@ -11,14 +11,9 @@
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
         <link rel="stylesheet" href="{{ asset('css/media.css') }}">
-        {{-- тут нужно разобраться, как подключить только для show --}}
+        
+        <link rel='stylesheet' href="{{ asset('unitegallery/css/unite-gallery.css') }}" type='text/css' /> 
         <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
-        <script type='text/javascript' src="{{ asset('unitegallery/js/unitegallery.min.js') }}"></script> 
-		
-		<link rel='stylesheet' href="{{ asset('unitegallery/css/unite-gallery.css') }}" type='text/css' /> 
-        <script type='text/javascript' src="{{ asset('unitegallery/themes/tiles/ug-theme-tiles.js') }}"></script> 
-        <script type='text/javascript' src="{{ asset('unitegallery/themes/tilesgrid/ug-theme-tilesgrid.js') }}"></script> 
-        {{-- вот этот фрагмент --}}
         <script src="https://use.fontawesome.com/9d56cf9b09.js"></script>
     </head>
     <body>
@@ -41,7 +36,12 @@
         </article>
 
         @include ('layouts.footer')
-        <script src="js/jquery-3.3.1.min.js"></script>
-        <script src="js/scripts.js"></script>
+        {{--  <script src={{ asset('js/jquery-3.3.1.min.js') }}></script>  --}}
+        <script src={{ asset('js/scripts.js') }}></script>
+        {{--  <script>
+            $(document).ready(function() {
+                alert("succeed");
+            });
+        </script>  --}}
     </body>
 </html>

@@ -45,44 +45,21 @@ class FilesController extends Controller
             else
                 FilesController::delete_gallery($current_post_id);
                
-            $current_photo_id = Gallery::max('id') + 1;
             foreach (request()->file('galery') as $image){
                 //creating db record
-                $file = new Gallery;
-                $file->post_id = $current_post_id;
-                $file->save();
-                // dd($current_photo_id);
+                $file_record = new Gallery;
+                $file_record->post_id = $current_post_id;
+                $file_record->save();
                 //creating images
                 $file = Image::make($image);
-                $file->save(public_path('img/gallery/big/' . $current_photo_id . '.png'));
+                $file->save(public_path('img/gallery/big/' . $file_record->id . '.png'));
                 $file->resize(120, null, function ($constraint) {
                     $constraint->aspectRatio();
                 });
-                $file->save(public_path('img/gallery/small/' . $current_photo_id . '.png'));
-                $current_photo_id++;
+                $file->save(public_path('img/gallery/small/' . $file_record->id . '.png'));
             }
         }
     } 
-    static function create_partner_img()
-    {
-        if (request()->hasFile('logo')) {
-            $current_img = Partner::orderBy('id', 'desc')->first();
-            if ($current_img != null){
-                $current_img_id = $current_img->id;
-                $current_img_id++;
-            }
-            else
-                $current_img_id = 1;
-
-            $file = Image::make(request()->file('logo'));
-            if ($file->width() > 130){
-                $file->resize(130, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                });
-            }
-            $file->save(public_path('img/parteneri/' . $current_img_id . '.png'));
-        } 
-    }
     static function delete_post_photos($id)
     {
         FilesController::delete_main_photo($id);
@@ -90,10 +67,10 @@ class FilesController extends Controller
     }
     static function delete_main_photo($id)
     {
-        Storage::disk('public')->delete([
-            'img/post_main_small/'. $id . '.png',
-            'img/post_main_big/'. $id . '.png'
-        ]);
+        // Storage::disk('public')->delete([
+        //     'img/post_main_small/'. $id . '.png',
+        //     'img/post_main_big/'. $id . '.png'
+        // ]);
         Storage::disk('public')->delete([
             'img/post_main/small/'. $id . '.png',
             'img/post_main/big/'. $id . '.png'
@@ -110,5 +87,36 @@ class FilesController extends Controller
             ]);
             $image->delete();
         }
+    }
+    static function create_partner_img($id)
+    {
+        if (request()->hasFile('logo')) {
+            $file = Image::make(request()->file('logo'));
+            if ($file->width() > 130){
+                $file->resize(130, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+            }
+            $file->save(public_path('img/parteneri/' . $id . '.png'));
+        } 
+    }
+    static function delete_partner_img($id)
+    {
+        Storage::disk('public')->delete([
+            'img/parteneri/'. $id . '.png',
+            'img/parteneri/'. $id . '.png'
+        ]);
+    }
+    static function create_member_img($id)
+    {
+        if (request()->hasFile('member_photo')) {
+            $file = Image::make(request()->file('member_photo'));
+            if ($file->width() > 150){
+                $file->resize(150, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+            }
+            $file->save(public_path('img/members/' . $id . '.png'));
+        } 
     }
 }

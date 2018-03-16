@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Partner extends Model
+class Member extends Model
 {
     public function del($id)
     {
-        $this::find($id)->delete();
+        $this->find($id)->delete();
     }
 }

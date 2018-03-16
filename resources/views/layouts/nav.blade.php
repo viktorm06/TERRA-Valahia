@@ -6,7 +6,7 @@
     <li class="despre">
         <a>DESPRE NOI</a>
         <ul class="submenu">
-            <li><a href="#">Text_1</a></li>
+            <li><a href="/members">MEMBRII</a></li>
             <li><a href="#">Text_2</a></li>
             <li><a href="#">Text_3</a></li>
             <li><a href="#">Text_4</a></li>

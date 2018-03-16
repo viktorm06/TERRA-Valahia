@@ -12,7 +12,10 @@
                             <span class="time">{{ $event->time }}</span>
                         </td>
                         <td class="description">
-                            <h3>{{ $event->title }}</h3>
+                            <div class="description_name_wrapper">
+                                <h2>{{ $event->title }}</h2>
+                            </div>
+                            
                         </td>
                     </tr>
                     <tr>
@@ -26,7 +29,9 @@
                 <table class="event">
                     <tr>
                         <td class="description">
-                            <h3>{{ $event->title }}</h3>
+                            <div class="description_name_wrapper">
+                                <h2>{{ $event->title }}</h2>
+                            </div>
                         </td>
                         <td class="time-and-date" rowspan="2">
                             <span class="date">{{ $event->date }}</span><br>
