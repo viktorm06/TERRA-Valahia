@@ -24,7 +24,7 @@ class DashboardController extends Controller
     }
     public function categories()
     {
-        $categories = \App\Category::latest()->get();
+        $categories = \App\Category::all();
         return view('admin.categories', compact('categories'));
     }
     // EVENTS

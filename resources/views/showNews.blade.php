@@ -31,9 +31,12 @@
         @if(!$post->videos->isEmpty())
             <h2 class="hidder2">Видео</h2>
             <br>
-            <div class="video-responsive">
-                {!! $post->videos[0]->video_src !!}
-            </div>
+            @foreach($post->videos as $video)
+                <div class="video-responsive">
+                    {!! $video->video_src !!}
+                </div>
+                <br>
+            @endforeach
         @endif
         
         @include ('layouts.gallery')

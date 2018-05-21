@@ -119,4 +119,13 @@ class FilesController extends Controller
             $file->save(public_path('img/members/' . $id . '.png'));
         } 
     }
+    static function create_event_banner($id){
+        $file = Image::make(request()->file('banner'));
+        if ($file->width() > 700){
+            $file->resize(700, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+        }
+        $file->save(public_path('img/events/' . $id . '.png'));
+    }
 }

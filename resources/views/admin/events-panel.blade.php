@@ -1,7 +1,6 @@
 @extends ('admin.layouts.master-admin')
 
 @section ('content')
-    <script src="https://use.fontawesome.com/9d56cf9b09.js"></script>
     <table cellpadding="10" cellspacing="0" border="1">
         @foreach ($events as $event)
         <tr>

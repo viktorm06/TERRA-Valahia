@@ -49,8 +49,44 @@ a:hover{
 }
 .short_desc{
     width: 100%;
-    height: 150px;
+    height: 120px;
+}
+.add_form_field{
+    display: inline-block;
+    background-color: rgb(255, 255, 255);
+    color: rgb(64, 28, 147);
+    padding: 5px;
+    border: 1px solid rgb(64, 28, 147);
+    border-radius: 5%;
+    margin-bottom: 15px;
+    cursor: pointer;
 }
 .ck-reset{
     z-index: 0;
 }
+
+.del_video_icon{
+    margin: 15px;
+}
+.del_video_icon:hover{
+    color: rgb(129, 5, 5);
+    cursor: pointer;
+}
+
+.video-responsive {
+    position: relative;
+    padding-bottom: 75%;
+    height: 0;
+    overflow: hidden;
+  }
+  
+  .video-responsive iframe,
+  .video-responsive object,
+  .video-responsive embed,
+  .video-responsive video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }

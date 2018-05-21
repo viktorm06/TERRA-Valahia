@@ -13,20 +13,25 @@
             <input name="place" type="text" class="form-control" id="place">
         </div>
         <div class="form-group">
-            <label for="time">Время:</label>
-            <input name="time" type="text" class="form-control" id="time">
-        </div>
-        <div class="form-group">
-            <label for="date">дата:</label>
+            <label for="date">Дата:</label>
             <input name="date" type="text" class="form-control" id="date">
         </div>
         <div class="form-group">
+            <label for="time">Время:</label>
+            <input name="time" type="text" class="form-control" id="time">
+        </div>
+        
+        <div class="form-group">
             <textarea name="body" id="editor">
-                {{--  Тут будет текст из редактора  --}}
+                
             </textarea>
         </div>
         <div class="form-group">
-            <button class="btn btn-lg btn-primary " type="submit">Выложить</button>
+            <label for="file">Баннер:</label>
+            <input name="banner" type="file" class="form-control-file" id="file">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-lg btn-primary " type="submit">Опубликовать</button>
         </div>
     </form>
     <script>

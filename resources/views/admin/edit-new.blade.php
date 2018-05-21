@@ -38,18 +38,49 @@
             <label for="file">Дополнительные фото(гелерея):</label>
             <input name="galery[]" type="file" class="form-control-file" id="file" multiple>
         </div>
-        <div class="form-group">
+        <div class="form-group" id="video_container">
             <label for="video">Код видео с youtube:</label>
-            <input name="video" type="text" class="form-control" id="video" value="
             @if (!$post->videos->isEmpty())
-                {{$post->videos[0]->video_src}}
+                <table width="50%">
+                    @foreach ($post->videos as $video)
+                        <tr id="{{ $video-> id }}">
+                            <td width="120px">
+                                <div class="video-responsive">{!! $video->video_src !!}</div>
+                            </td>
+                            <td><input name="video[]" type="text" class="form-control"  value="{{ $video->video_src }}"></td>              
+                            <td>
+                                <i class="fa fa-times fa-2x del_video_icon" aria-hidden="true" onclick="deleteFields( {{ $video->id }} )"></i>
+                            </td>
+                        </tr>
+                     @endforeach
+                </table>
+                
+            @else
+                <input name="video[]" type="text" class="form-control" id="video">
             @endif
-            ">
         </div>
+        <div class="add_form_field" onclick="addFields()">Добавить поле</div>
         <div class="form-group">
             <button class="btn btn-lg btn-primary " type="submit">Выложить</button>
         </div>
     </form>
+
+    <script>
+        function addFields()
+        {
+            var container = document.getElementById("video_container");
+            var input = document.createElement("input");
+            input.type = "text";
+            input.name = "video[]";
+            input.className = "form-control";
+            container.appendChild(document.createElement("br"));
+            container.appendChild(input);
+        }
+        function deleteFields(id){
+            var element = document.getElementById(id);
+            element.parentNode.removeChild(element);
+        }
+    </script>
     <script>
         ClassicEditor
             .create(document.querySelector('#editor'))

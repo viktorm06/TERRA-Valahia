@@ -17,7 +17,16 @@ class PostsController extends Controller
     }
     public function index_category($category)
     {
-        $posts = Mini_post::where('category', '=', $category)->orderBy('id', 'desc')->simplePaginate(2);
+        $posts = Mini_post::where('category', '=', $category)->orderBy('id', 'desc')->simplePaginate(5);
+        return view('news', compact('posts'));
+    }
+    public function search(Request $request){
+        $result = new Post;
+        $posts = $result->search(request('s'));
+        if ($posts->isEmpty()) {
+            $search = request('s');
+            return (view('news_search_no_results', ['search' => $search]));
+        }
         return view('news', compact('posts'));
     }
     public function show($id)
@@ -32,12 +41,12 @@ class PostsController extends Controller
         if ($id == null){
             $mini_post = new Mini_post;
             $post = new Post;
-            $video = new Video; 
         }
         else {
             $mini_post = Mini_post::find($id);
             $post = Post::find($id);
-            $video = $post->videos[0];
+            $del_video = new Video;
+            $del_video -> del($id);
         }
         $mini_post->title = request('title');
         $mini_post->short_body = request('short_body');
@@ -47,10 +56,13 @@ class PostsController extends Controller
         $post->body = request('body');
         $post->save();
 
-        if (request('video')){
-            $video->video_src = request('video');
-            $video->post_id = $post->id;
-            $video->save();
+        if (request('video')[0] != null){
+            foreach (request('video') as $video_field){
+                $video = new Video;
+                $video->video_src = $video_field;
+                $video->post_id = $post->id;
+                $video->save();
+            }
         }
         File::create_photo_for_post($id);
         File::create_gallery_for_post($id);

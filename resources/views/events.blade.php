@@ -12,10 +12,13 @@
                             <span class="time">{{ $event->time }}</span>
                         </td>
                         <td class="description">
-                            <div class="description_name_wrapper">
-                                <h2>{{ $event->title }}</h2>
-                            </div>
-                            
+                            @if ($event->title != "")
+                                <div class="description_name_wrapper">
+                                    <h2>{{ $event->title }}</h2>
+                                </div>
+                            @else
+                                <img src="{{ 'img/events/' . $event->id . '.png' }}" alt="">
+                            @endif
                         </td>
                     </tr>
                     <tr>
@@ -29,9 +32,13 @@
                 <table class="event">
                     <tr>
                         <td class="description">
-                            <div class="description_name_wrapper">
-                                <h2>{{ $event->title }}</h2>
-                            </div>
+                            @if ($event->title != "")
+                                <div class="description_name_wrapper">
+                                    <h2>{{ $event->title }}</h2>
+                                </div>
+                            @else
+                                <img src="{{ 'img/events/' . $event->id . '.png' }}" alt="">
+                            @endif
                         </td>
                         <td class="time-and-date" rowspan="2">
                             <span class="date">{{ $event->date }}</span><br>

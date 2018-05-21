@@ -4,15 +4,26 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Http\Request;
+
+use App\Http\Controllers\FilesController as File;
+
 class Event extends Model
 {
     public function create($id)
     {
         if ($id != null) 
             $event = $this::find($id);
-        else 
+        else {
             $event = $this;
-        $event->title = request('title');
+            $id = $this::max('id') + 1;
+        }
+ 
+        if (request()->hasFile('banner')){
+            File::create_event_banner($id);
+        }
+
+        $event->title = request('title', '');
         $event->body = request('body');
         $event->place = request('place');
         $event->date = request('date');

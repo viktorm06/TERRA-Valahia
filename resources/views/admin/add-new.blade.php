@@ -17,9 +17,11 @@
             <input name="title" type="text" class="form-control" id="title" required>
         </div>
         <div class="form-group">
-            <textarea name="short_body" class="form-control short_desc" required></textarea>
+            <label for="short_body">Краткое описание:</label>
+            <textarea name="short_body" id="short_body" class="form-control short_desc" required></textarea>
         </div>
         <div class="form-group">
+            <label for="editor">Подробное описание:</label>
             <textarea class="form-control" name="body" id="editor" required>
                 {{--  Тут будет текст из редактора  --}}
             </textarea>
@@ -32,14 +34,27 @@
             <label for="file">Дополнительные фото(гелерея):</label>
             <input name="galery[]" type="file" class="form-control-file" id="file" multiple>
         </div>
-        <div class="form-group">
+        <div class="form-group" id="video_container">
             <label for="video">Код видео с youtube:</label>
-            <input name="video" type="text" class="form-control" id="video">
+            <input name="video[]" type="text" class="form-control" id="video">
         </div>
+        <div class="add_form_field" onclick="addFields()">Добавить поле</div>
         <div class="form-group">
             <button class="btn btn-lg btn-primary " type="submit">Опубликовать</button>
         </div>
     </form>
+    <script>
+        function addFields()
+        {
+            var container = document.getElementById("video_container");
+            var input = document.createElement("input");
+            input.type = "text";
+            input.name = "video[]";
+            input.className = "form-control";
+            container.appendChild(document.createElement("br"));
+            container.appendChild(input);
+        }
+    </script>
     <script>
         ClassicEditor
             .create(document.querySelector('#editor'))

@@ -15,8 +15,10 @@
     <li>
         <div class="container_search">
             <div class="s_wrapper">
-                <input class="search" type="text" name="search" placeholder="Cautati pe saitul">
-                <button class="bt_search"><i class="fa fa-search" aria-hidden="true"></i></button>
+                <form action="/search" method="GET">
+                    <input class="search" type="text" name="s" placeholder="Cautati pe saitul">
+                    <button class="bt_search"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
             </div>
         </div>
     </li>
